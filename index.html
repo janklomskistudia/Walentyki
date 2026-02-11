@@ -218,17 +218,34 @@
 
     <!-- Screen 2: Gallery -->
     <div class="container" id="screen-gallery">
-        <h1>Our Memories 📸</h1>
-        <p>Every moment with you is a treasure.</p>
+        <h1>Jak to się zaczeło 📸</h1>
+        <p>Już od wielu miesięcy jesteśmy razem. Spędziliśmy wiele pięknych chwil 🥰</p>
         <div class="gallery-grid">
             <!-- Replace these sources with your actual image URLs -->
-            <div class="photo-card"><img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400"
+            <div class="photo-card"><img src="fotos/IMG-20250719-WA0001.jpg"
                     alt="Memory 1"></div>
-            <div class="photo-card"><img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=400"
+            <div class="photo-card"><img src="fotos/20250909_203109.jpg"
                     alt="Memory 2"></div>
-            <div class="photo-card"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=400"
+            <div class="photo-card"><img src="fotos/IMG-20250916-WA0043.jpg"
                     alt="Memory 3"></div>
-            <div class="photo-card"><img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=400"
+            <div class="photo-card"><img src="fotos/20251121_140800.jpg"
+                    alt="Memory 4"></div>
+        </div>
+        <button class="btn" onclick="nextScreen('screen-gallery2')">Next -></button>
+    </div>
+
+    <div class="container" id="screen-gallery2">
+        <h1>Jak to idzie dalej ✍️</h1>
+        <p>Czas który razem spędzaliśmy był zawsze najlepszy 🤩</p>
+        <div class="gallery-grid">
+            <!-- Replace these sources with your actual image URLs -->
+            <div class="photo-card"><img src="fotos/20251206_202810.jpg"
+                    alt="Memory 1"></div>
+            <div class="photo-card"><img src="fotos/IMG-20251207-WA0064.jpg"
+                    alt="Memory 2"></div>
+            <div class="photo-card"><img src="fotos/IMG-20251207-WA0089.jpg"
+                    alt="Memory 3"></div>
+            <div class="photo-card"><img src="fotos/IMG-20260103-WA0002.jpg"
                     alt="Memory 4"></div>
         </div>
         <button class="btn" onclick="nextScreen('screen-letter')">Next -></button>
@@ -236,30 +253,29 @@
 
     <!-- Screen 3: Letter -->
     <div class="container" id="screen-letter">
-        <h1>For You... 💌</h1>
+        <h1>Do Ciebie... 💌</h1>
         <div class="letter-content">
             <span id="typewriter-text"></span><span class="cursor"></span>
         </div>
         <button class="btn" id="letter-next-btn" style="opacity: 0; pointer-events: none;"
-            onclick="nextScreen('screen-proposal')">One Last Thing...</button>
+            onclick="nextScreen('screen-proposal')">I najważniejsze...</button>
     </div>
 
     <!-- Screen 4: Proposal -->
     <div class="container" id="screen-proposal">
-        <h1>Will You Be My Valentine? 🌹</h1>
-        <p>You are my sunshine, my joy, and my everything.</p>
+        <h1>Czy zostaniesz moją walentynką? 🌹</h1>
         <div class="proposal-btns">
-            <button class="btn" id="yesBtn" onclick="acceptProposal()">YES! 😍</button>
-            <button class="btn" id="noBtn" onmouseover="dodgeButton()" ontouchstart="dodgeButton()">No 😢</button>
+            <button class="btn" id="yesBtn" onclick="acceptProposal()">TAK! 😍</button>
+            <button class="btn" id="noBtn" onmouseover="dodgeButton()" ontouchstart="dodgeButton()">NIE 😢</button>
         </div>
     </div>
 
     <!-- Screen 5: Celebration -->
     <div class="container" id="screen-celebration">
-        <h1>I Knew It! 💖</h1>
-        <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Celebration"
+        <h1>Wiedziałem! 💖</h1>
+        <img src="fotos/20251221_220400.jpg" alt="Celebration"
             style="width: 100%; border-radius: 10px; margin-bottom: 20px;">
-        <p>I love you so much! Can't wait for our date! 🥰</p>
+        <p>Już nie mogę się doczekać naszej randki największych słodziaków! 🥰</p>
     </div>
 
     <!-- Audio -->
@@ -270,10 +286,10 @@
     <script>
         /* --- CONFIGURATION --- */
         // ACTION: Replace with your actual email to receive the notification
-        const YOUR_EMAIL = "demo@gmail.com";
+        const YOUR_EMAIL = "jankloms@gmail.com";
 
         // ACTION: Customize your love letter here
-        const loveLetterText = "Dearest Love,\n\nFrom the moment I met you, my world has been brighter. Your smile is my favorite sight, and your laughter is my favorite sound.\n\nI cherish every moment we share, and I want to create a million more memories with you.\n\nSo, I have a very important question...";
+        const loveLetterText = "Kochana Aniu,\n\nPatrząc na to, ile wspólnych chwil już za nami, aż ciężko uwierzyć, jak bardzo moje życie się zmieniło odkąd jesteś obok. Każdy spacer, rozmowa czy nawet zwykłe siedzenie razem, każde przytulenie stało się dla mnie czymś naprawdę ważnym.\n\nBardzo się cieszę, że to właśnie z Tobą mogę tworzyć te wszystkie wspomnienia. Choć dzieli nas wiele kilometrów i długich pociągów to cenie te wspomienia które nas łączą.\n\nDlatego chciałbym w ten czas zakochanych zaprosić Cię na nasz wspólny walentynkowy czas w tę sobotę.\n\nMam tylko jedno pytanie...";
         /* --------------------- */
 
         // Particle System
@@ -298,9 +314,6 @@
             const target = document.getElementById(targetId);
             target.classList.add('active');
 
-            if (targetId === 'screen-intro') {
-                playMusic();
-            }
             if (targetId === 'screen-letter') {
                 startTypewriter();
             }
@@ -335,9 +348,9 @@
         function dodgeButton() {
             const btn = document.getElementById('noBtn');
             const phrases = [
-                "No 😢", "Are you sure?", "Really?", "Think again!",
-                "Don't break my heart 💔", "Please? 🥺", "Last chance!",
-                "You can't say no!", "I'll give you cookies 🍪", "But I love you! ❤️"
+                "Nie 😢", "Czy jesteś pewna?", "Na pewno?", "Pomyśl jeszcze raz!",
+                "Nie zniszcz mojego serca 💔", "Proszę? 🥺", "Ostatnia szansa!",
+                "Nie możesz powiedzieć NIE!", "Daj Ci ciasteczka 🍪", "Ale ja Cię kocham! ❤️"
             ];
 
             // Move button
@@ -364,7 +377,7 @@
         }
 
         function sendNotification() {
-            if (YOUR_EMAIL === "INSERT_YOUR_EMAIL_HERE") {
+            if (YOUR_EMAIL === "jankloms@gmail.com") {
                 console.warn("Email not configured.");
                 return;
             }
