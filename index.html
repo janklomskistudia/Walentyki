@@ -234,7 +234,7 @@
             <div class="photo-card"><img src="fotos/20251121_140800.jpg"
                     alt="Memory 4"></div>
         </div>
-        <button class="btn" onclick="nextScreen('screen-gallery2')">Next -></button>
+        <button class="btn" onclick="nextScreen('screen-gallery2')">Dalej -></button>
     </div>
 
     <div class="container" id="screen-gallery2">
@@ -251,7 +251,7 @@
             <div class="photo-card"><img src="fotos/IMG-20260103-WA0002.jpg"
                     alt="Memory 4"></div>
         </div>
-        <button class="btn" onclick="nextScreen('screen-letter')">Next -></button>
+        <button class="btn" onclick="nextScreen('screen-letter')">Dalej -></button>
     </div>
 
     <!-- Screen 3: Letter -->
@@ -282,9 +282,6 @@
     </div>
 
     <!-- Audio -->
-    <audio id="bgMusic" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" type="audio/mp3">
-    </audio>
 
     <script>
         /* --- CONFIGURATION --- */
@@ -380,7 +377,7 @@
         }
 
         function sendNotification() {
-            if (YOUR_EMAIL === "jankloms@gmail.com") {
+            if (YOUR_EMAIL == "jankloms@gmail.com") {
                 console.warn("Email not configured.");
                 return;
             }
